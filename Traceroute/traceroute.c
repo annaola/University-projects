@@ -10,8 +10,7 @@ char ips[NUM_OF_PACKETS][20];
 int main(int argc, char const *argv[])
 {
     char ip[20];
-    strcpy(ip, argv[1]);
-
+    
     // sprawdzanie poprawności wejścia
     if (argc != 2) {
         printf("Wrong number of arguments\n");
@@ -23,7 +22,9 @@ int main(int argc, char const *argv[])
         printf("Incorrect ip\n");
         return EXIT_FAILURE;
     }
-
+    
+    strcpy(ip, argv[1]);
+    
     // tworzenie gniazda
     int sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
     if (sockfd < 0) {
